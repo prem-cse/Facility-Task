@@ -2,7 +2,7 @@ package com.example.facilitytask.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ExclusionsItemItem{
+public class ExclusionsItem {
 
 	@SerializedName("options_id")
 	private String optionsId;
@@ -21,7 +21,7 @@ public class ExclusionsItemItem{
 	@Override
  	public String toString(){
 		return 
-			"ExclusionsItemItem{" + 
+			"ExclusionsItem{" +
 			"options_id = '" + optionsId + '\'' + 
 			",facility_id = '" + facilityId + '\'' + 
 			"}";

@@ -6,12 +6,12 @@ import com.google.gson.annotations.SerializedName;
 public class FacilityResponse{
 
 	@SerializedName("exclusions")
-	private List<List<ExclusionsItemItem>> exclusions;
+	private List<List<ExclusionsItem>> exclusions;
 
 	@SerializedName("facilities")
 	private List<FacilitiesItem> facilities;
 
-	public List<List<ExclusionsItemItem>> getExclusions(){
+	public List<List<ExclusionsItem>> getExclusions(){
 		return exclusions;
 	}
 

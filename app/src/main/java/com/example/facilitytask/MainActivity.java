@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getFacilities(new FacilityResponseListener() {
             @Override
             public void onSuccess(FacilityResponse response) {
-                adapter = new FacilityAdapter(MainActivity.this, response.getFacilities());
+                adapter = new FacilityAdapter(MainActivity.this, response.getFacilities(), response.getExclusions());
                 recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();
             }
