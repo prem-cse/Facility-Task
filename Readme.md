@@ -10,8 +10,7 @@ This is the Assignment-1 shared by Physics Wallah.
 
 This app uses an API (https://my-json-server.typicode.com/ricky1550/pariksha/db) to  fetch the data from the server.
 
-
-![](./app/asset/demo.gif)
+<img src="./app/asset/demo.gif" width="350" height="650"/>
 
 ## What I learned
 
