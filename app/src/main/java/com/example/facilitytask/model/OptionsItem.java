@@ -13,24 +13,12 @@ public class OptionsItem{
 	@SerializedName("id")
 	private String id;
 
-	public void setName(String name){
-		this.name = name;
-	}
-
 	public String getName(){
 		return name;
 	}
 
-	public void setIcon(String icon){
-		this.icon = icon;
-	}
-
 	public String getIcon(){
 		return icon;
-	}
-
-	public void setId(String id){
-		this.id = id;
 	}
 
 	public String getId(){

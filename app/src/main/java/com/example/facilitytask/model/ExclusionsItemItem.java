@@ -10,16 +10,8 @@ public class ExclusionsItemItem{
 	@SerializedName("facility_id")
 	private String facilityId;
 
-	public void setOptionsId(String optionsId){
-		this.optionsId = optionsId;
-	}
-
 	public String getOptionsId(){
 		return optionsId;
-	}
-
-	public void setFacilityId(String facilityId){
-		this.facilityId = facilityId;
 	}
 
 	public String getFacilityId(){

@@ -14,24 +14,12 @@ public class FacilitiesItem{
 	@SerializedName("facility_id")
 	private String facilityId;
 
-	public void setName(String name){
-		this.name = name;
-	}
-
 	public String getName(){
 		return name;
 	}
 
-	public void setOptions(List<OptionsItem> options){
-		this.options = options;
-	}
-
 	public List<OptionsItem> getOptions(){
 		return options;
-	}
-
-	public void setFacilityId(String facilityId){
-		this.facilityId = facilityId;
 	}
 
 	public String getFacilityId(){

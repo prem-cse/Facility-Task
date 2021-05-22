@@ -1,6 +1,8 @@
 package com.example.facilitytask.repository;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.facilitytask.AppExecutors;
 import com.example.facilitytask.model.FacilityResponse;
@@ -42,23 +44,21 @@ public class FacilityRepository {
     /**
      * Make a network request by calling enqueue and provide a object of FacilityResponse for ViewModel
      */
-    public FacilityResponse getFacilities() {
-        final FacilityResponse[] facilityResponse = {new FacilityResponse()};
-        apiInterface.getFacilities()
-                // Calls are executed with asynchronously with enqueue and notify callback of its response
-                .enqueue(new Callback<FacilityResponse>() {
-                    @Override
-                    public void onResponse(Call<FacilityResponse> call, Response<FacilityResponse> response) {
-                        if (response.isSuccessful()) {
-                             facilityResponse[0] = response.body();
-                        }
-                    }
+    public void getFacilities(FacilityResponseListener listener) {
 
-                    @Override
-                    public void onFailure(Call<FacilityResponse> call, Throwable t) {
-                        Log.e(TAG, "Failed getting response: " + t.getMessage());
-                    }
-                });
-        return facilityResponse[0];
+        Call<FacilityResponse> call = apiInterface.getFacilities();
+        call.enqueue(new Callback<FacilityResponse>() {
+            @Override
+            public void onResponse(Call<FacilityResponse> call, Response<FacilityResponse> response) {
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FacilityResponse> call, Throwable t) {
+               listener.onFailure(t);
+            }
+        });
     }
 }
