@@ -1,11 +1,9 @@
 package com.example.facilitytask;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -14,10 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facilitytask.model.FacilitiesItem;
+import com.example.facilitytask.model.OptionsItem;
 
 import java.util.List;
 
-public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.FacilityViewHolder>  {
+public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.FacilityViewHolder> {
 
     private Context context;
     private List<FacilitiesItem> facilitiesItemList;
@@ -30,7 +29,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.Facili
     @NonNull
     @Override
     public FacilityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
         return new FacilityViewHolder(v);
     }
 
@@ -57,16 +56,14 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.Facili
 
         public void bind(FacilitiesItem item) {
             name.setText(item.getName());
-            int options = item.getOptions().size();
-            radioGroup.setOrientation(LinearLayout.HORIZONTAL);
-
-            for (int i = 1; i <= options; i++) {
-                RadioButton rbn = new RadioButton(context);
-                rbn.setId(View.generateViewId());
-                rbn.setText("RadioButton" + i);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1f);
-                rbn.setLayoutParams(params);
-                radioGroup.addView(rbn);
+            List<OptionsItem> optionsItems = item.getOptions();
+            RadioGroup.LayoutParams params;
+            for (int i = 0; i < optionsItems.size(); i++) {
+                RadioButton radioButton = new RadioButton(context);
+                radioButton.setId(View.generateViewId());
+                radioButton.setText(optionsItems.get(i).getName());
+                params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                radioGroup.addView(radioButton, params);
             }
         }
     }

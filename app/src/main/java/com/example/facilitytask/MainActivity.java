@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private RecyclerView recyclerView;
     private FacilityAdapter adapter;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(FacilityResponse response) {
                 adapter = new FacilityAdapter(MainActivity.this, response.getFacilities());
                 recyclerView.setAdapter(adapter);
+                progressDialog.dismiss();
             }
 
             @Override
             public void onFailure(Throwable t) {
-               Log.d(TAG, t.getMessage());
+                progressDialog.dismiss();
+                Toast.makeText(MainActivity.this, "Fetching Failed",Toast.LENGTH_SHORT).show();
+                Log.d(TAG, t.getMessage());
             }
         });
     }
@@ -45,5 +50,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
     }
 }

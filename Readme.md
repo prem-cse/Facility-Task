@@ -30,3 +30,8 @@ This app uses an API (https://my-json-server.typicode.com/ricky1550/pariksha/db)
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/)
 
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+
+* [Retrofit](https://square.github.io/retrofit/)
+
+## Screenshot
+![](https://lh5.googleusercontent.com/O1kcsXZuhtI9Xng7YEnGAUnm0gZB-bxTtYuPmbJnv_b7XgUvmaVe3wfAiqOiCen2qLt9wwzgSNsLuBOq8-v6CQy3iENIbiF2_2ClIOW-vzDFLm6WW0EiXBDtFlYO9rIvlE-uDU6t)
