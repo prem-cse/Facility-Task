@@ -1,6 +1,7 @@
 package com.example.facilitytask;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.Facili
 
     @Override
     public int getItemCount() {
-        return 0;
+        return facilitiesItemList.size();
     }
 
     public class FacilityViewHolder extends RecyclerView.ViewHolder {
